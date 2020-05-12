@@ -1,0 +1,46 @@
+package Stack;
+
+import LinkedList.SinglyLinkedList;
+
+public class Stack extends SinglyLinkedList {
+	
+	Node elementPosition;
+	
+	public boolean isEmpty()
+	{
+		return elementPosition == null;
+	}
+	public void push(LinkedList.Node node,SinglyLinkedList list,int data)
+	{
+		node = list.insertatthefront(list.head, data);
+		list.head = node;
+	}
+	public SinglyLinkedList pop(SinglyLinkedList list,LinkedList.Node node)
+	{
+		if(list.head != null) {
+			System.out.println(" New top element is \n");
+		node = list.DeletefromtheFront(node);
+		list.head = node;
+		return list;
+		}
+		else
+			System.out.println("Stack underflow/n");
+		return null;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LinkedList.Node newNode = new LinkedList.Node(0);
+		SinglyLinkedList sll = new SinglyLinkedList();
+		Stack newStack = new Stack();
+		newStack.push(newNode, sll, 10);
+		newStack.push(newNode, sll, 30);	
+		newStack.push(newNode, sll, 40);	
+		newStack.push(newNode, sll, 50);
+		PrintList(sll);
+		sll = newStack.pop(sll, sll.head);
+		PrintList(sll);
+
+	}
+
+}
